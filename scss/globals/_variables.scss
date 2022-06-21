@@ -1,0 +1,91 @@
+$z-fixed: 100;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// design widths
+$design-desktop-width: 1440px;
+$design-mobile-width: 375px;
+
+// colors
+$color-primary-orange: hsl(26, 100%, 55%);
+$color-primary-pale-orange: hsl(25, 100%, 94%);
+$color-x-dark-blue: hsl(220, 13%, 13%);
+$color-dark-grayish-blue: hsl(219, 9%, 45%);
+$color-divider: #E8E7EC;
+$color-grayish-blue: hsl(220, 14%, 75%);
+$color-light-grayish-blue: hsl(223, 64%, 98%);
+
+// font-weights
+$font-weight-400: 400;
+$font-weight-700: 700;
+
+// z-index
+$z-fixed: 20;
+
+// header-height
+$header-height-mobile: 68px;
+$header-height-desktop: 112px;
+
+// logo margin right
+$logo-margin-right-desktop: 56px;
+
+$desktop-main-padding-top: 90px;
+
+$padding-x-main-mobile: 25px;
+
+$container-width: 1110px;
+$main-max-width: 1060px;
+$mobile-padding: 25px;
+$product-image-description-margin: 122px;
+$desktop-header-bottom-margin: 90px;
+
+$burger-logo-gap-min: 4px;
+$burger-logo-gap-max: 12px;
+
+$avatar-img-width-min: 25px;
+$avatar-img-width-max: 50px;
+
+$cart-avatar-gap-min: 6px;
+$cart-avatar-gap-max: 37px;
+
+$menu-list-padding-left-min: 40px;
+$menu-list-padding-left-max: 60px;
+
+/*** BREAKPOINTS ***/
+$header-menu-breakpoint: 750px;
+
+$product-image-width: 445px;
+$preview-flex-gap: 20px;
+$preview_img_width: 88px;
+
+$first-breakpoint: $product-image-width + $mobile-padding * 2 + 20px; // 9px scroll width
+$second-breakpoint: $first-breakpoint + $preview-flex-gap + $preview_img_width;
+$third-breakpoint: ($mobile-padding + $product-image-width + $preview-flex-gap) * 2;
+
+
+/*** PREV-NEXT GALLERY-LIGHTBOX BUTTONS ***/
+$arrow-button-radius-mobile: 40px;
+$arrow-button-radius-desktop: 56px;
+
+$arrow-image-width-mobile: 9px;
+$arrow-image-height-mobile: 14px;
+
+$arrow-image-width-desktop: 11px;
+$arrow-image-height-desktop: 18px;
+
+$arrow-button-margin-mobile: 16px;
+
+/*** Z-INDEXES ***/
+$zIndex-lightbox-overlay: 10;
+$zIndex-arrow-buttons: 11;
+
+/*** PREVIEW OPTIONS CAROUSEL DIRECTION ***/
+:root {
+   --preview-options-carousel-axis: X;
+   @media (min-width: $second-breakpoint) {
+      --preview-options-carousel-axis: Y;
+   }
+   @media (min-width: $third-breakpoint) {
+      --preview-options-carousel-axis: X;
+   }
+}

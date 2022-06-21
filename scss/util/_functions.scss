@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@function rem($px) {
+	@if math.is-unitless($px) {
+		@return math.div($px, 16) + rem;
+	} @else {
+		@error 'Don\'t use units when using the rem() function';
+	}
+}
+
+@function em($px) {
+	@if math.is-unitless($px) {
+		@return math.div($px, 16) + em;
+	} @else {
+		@error 'Don\'t use units when using the em() function';
+	}
+}
+
+@function responsive($from, $to, $min, $max) {
+	$div: ($to - $from) / ($max - $min);
+
+	@return max($min, min(calc(math.div(calc(100vw - $from), $div) + $min), $max));
+}

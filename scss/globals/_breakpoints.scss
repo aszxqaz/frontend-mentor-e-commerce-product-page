@@ -1,0 +1,25 @@
+@use '../util/functions' as fns;
+
+$breakpoints-up: (
+  'md': fns.em(500),
+  'lg': fns.em(850),
+  'xl': fns.em(1048)
+);
+
+$breakpoints-down: (
+  'sm': fns.em(499.98),
+  'md': fns.em(849.98),
+  'lg': fns.em(1047.98)
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

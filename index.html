@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/dist/main.css" rel="stylesheet" />
+		<title></title>
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header class="header header-container" id="header">
+			<nav class="nav header-container">
+				<div class="nav__menu" id="nav-menu">
+					<div class="nav__menu-panel">
+						<ul class="nav__list">
+							<li class="nav__item">
+								<a href="#collections" class="nav__link"> Collections </a>
+							</li>
+							<li class="nav__item">
+								<a href="#men" class="nav__link"> Men </a>
+							</li>
+							<li class="nav__item">
+								<a href="#women" class="nav__link"> Women </a>
+							</li>
+							<li class="nav__item">
+								<a href="#about" class="nav__link"> About </a>
+							</li>
+							<li class="nav__item">
+								<a href="#contact" class="nav__link"> Contact </a>
+							</li>
+						</ul>
+						<button class="nav__close" id="nav-close">
+							<img src="/images/icon-close.svg" alt="" />
+						</button>
+					</div>
+				</div>
+				<button class="nav__toggle" id="nav-toggle">
+					<img src="/images/icon-menu.svg" alt="" />
+				</button>
+				<div class="nav__logo">
+					<img src="/images/logo.svg" alt="logo" />
+				</div>
+				<div class="cart-wrapper my_cart_wrapper" id="cart">
+					<button class="nav__cart my_cart_toggle">
+						<img src="/images/icon-cart.svg" alt="cart" />
+					</button>
+               <!-- cart inserts here -->
+               <span class="cart-badge my_cart_badge"></span>
+				</div>
+				<button class="nav__avatar">
+					<img src="/images/image-avatar.png" alt="avatar" />
+				</button>
+			</nav>
+		</header>
+		<!-- MAIN -->
+		<main class="main main-container">
+			<section class="product">
+				<div class="product__preview preview" id="preview">
+				</div>
+				<!-- <div class="lightbox" id="lightbox"></div> -->
+				<div class="product__content">
+					<span class="product__company">Sneaker Company</span>
+					<h1 class="product__title">Fall Limited Edition Sneakers</h1>
+					<p class="product__description">
+						These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
+						they'll withstand everything the weather can offer.
+					</p>
+					<div class="product__price">
+						<span class="product__price-amount">$125.00</span>
+						<span class="product__price-discount">50%</span>
+						<span class="product__price-previous">$250.00</span>
+					</div>
+					<div class="add2cart">
+						<div class="add2cart__panel">
+							<button  data-my_cart_remove="1" class="add2cart__minus">
+								<img src="/images/icon-minus.svg" alt="Remove item from cart" />
+							</button>
+							<span data-my_cart_quantity="1" class="add2cart__quantity">0</span>
+							<button data-my_cart_add="1" class="add2cart__plus">
+								<img src="/images/icon-plus.svg" alt="Add item to cart" />
+							</button>
+						</div>
+						<button class="add2cart__button my_cart_add_to_cart">
+							<img src="/images/icon-cart.svg" />
+							Add to cart
+						</button>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script type="module" src="/js/main.js"></script>
+	</body>
+</html>

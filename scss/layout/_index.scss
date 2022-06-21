@@ -1,0 +1,24 @@
+@use '../util' as *;
+@use '../globals' as *;
+
+.grid {
+	display: grid;
+	max-width: em(1000);
+	margin-inline: auto;
+}
+
+.header-container {
+   max-width: $container-width;
+   margin: 0 auto;
+}
+
+.main-container {
+   max-width: $main-max-width;
+   margin: 0 auto;
+}
+
+%flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

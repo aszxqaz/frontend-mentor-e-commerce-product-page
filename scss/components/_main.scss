@@ -1,0 +1,104 @@
+@use '../globals/' as *;
+@use '../util/' as *;
+@use 'sass:math' as math;
+@use 'sass:list' as list;
+@use 'preview' as *;
+
+.main {
+	// margin-right: $padding-x-main-mobile;
+	// margin-left: $padding-x-main-mobile;
+	// margin-top: $header-height-mobile;
+}
+
+.product {
+	margin: 0 auto;
+
+	@media (min-width: $first-breakpoint) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		// padding-top: max(30px, min(calc(math.div(calc(100vw - 850px), 9.83333) + 30px), 90px));
+		// padding-top: responsive(850px, 1285px, 30px, 90px);
+      padding-top: $mobile-padding;
+
+		padding-inline: $mobile-padding;
+	}
+
+	@media (min-width: $second-breakpoint) {
+		max-width: initial;
+		// flex-direction: initial;
+		// gap: rem(125);
+		// gap: min(calc(math.div(calc(100vw - 920px), 5) + 20px), 100px);
+		//gap: responsive(850px, 1285px, 20px, 125px);
+
+		// padding-inline: 70px;
+		//padding-inline: responsive(850px, 1440px, 20px, 70px);
+	}
+
+   @media (min-width: $third-breakpoint) {
+      flex-direction: initial;
+      gap: 40px;
+      padding-top: responsive($container-width, 1440px, 25px, 90px);
+   }
+
+	&__content {
+		padding-inline: $mobile-padding;
+		@media (min-width: $first-breakpoint){
+			padding-inline: initial;
+         flex: 1;
+		}
+	}
+
+	&__preview {
+	}
+}
+
+.product__company {
+	display: inline-block;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: $font-weight-700;
+	font-size: 14px;
+	color: $color-primary-orange;
+}
+
+.product__title {
+}
+
+.product__description {
+	margin-bottom: 28px;
+}
+
+.product__price {
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+
+	margin-bottom: 28px;
+
+	&-amount {
+		font-weight: $font-weight-700;
+		font-size: 29px;
+	}
+	&-discount {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: 3px 8px;
+
+		border-radius: 6px;
+		color: $color-primary-orange;
+		font-weight: $font-weight-700;
+		background-color: $color-primary-pale-orange;
+	}
+	&-previous {
+		flex: 1;
+		text-align: right;
+
+		text-decoration: line-through;
+		color: $color-grayish-blue;
+		font-weight: $font-weight-700;
+	}
+}

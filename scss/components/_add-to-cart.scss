@@ -1,0 +1,77 @@
+@use '../globals/' as *;
+@use '../layout/' as *;
+
+.add2cart {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 30px;
+   height: 56px;
+
+	@include breakpoint-up(md) {
+		flex-direction: row;
+	}
+
+	&__panel {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+      flex: 156;
+		padding: 2px;
+		background-color: $color-light-grayish-blue;
+		border-radius: 9px;
+
+      span {
+         font-weight: $font-weight-700;
+      }
+	}
+
+	&__minus, &__plus {
+      @extend %flex-center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+
+      &:focus {
+         outline: 1px solid $color-primary-orange;
+      }
+
+      transition: opacity 0.1s ease-in;
+      &:hover {
+         opacity: 0.5;
+      }
+	}
+
+	&__button {
+		@extend .button;
+      flex: 272;
+	}
+}
+
+.button {
+	display: inline-block;
+
+	color: white;
+	background-color: $color-primary-orange;
+   transition: background-color 0.2s ease-in;
+   &:hover {
+      opacity: 0.5;
+      box-shadow: 0px 10px 30px hsla(26, 100%, 55%, 0.5);
+   }
+	font-weight: $font-weight-700;
+	width: 100%;
+	padding: 15px;
+	border-radius: 9px;
+   cursor: pointer;
+
+	img {
+		display: inline-flex;
+		width: 15px;
+		height: 15px;
+		margin-right: 13px;
+
+		filter: brightness(0) saturate(100%) invert(99%) sepia(36%) saturate(199%) hue-rotate(177deg) brightness(113%)
+			contrast(87%);
+	}
+}

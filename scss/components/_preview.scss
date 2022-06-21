@@ -1,0 +1,187 @@
+@use '../globals/' as *;
+@use 'sass:math' as math;
+
+.preview {
+	max-width: 445px;
+	margin: 0 auto;
+	// position: relative;
+   transform: translate(0, 0);
+
+	margin-bottom: 26px;
+
+	@media (min-width: $first-breakpoint) {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	@media (min-width: $second-breakpoint) {
+		flex-direction: row;
+		max-width: initial;
+	}
+
+	@media (min-width: $third-breakpoint) {
+		flex-direction: column;
+	}
+
+   &.lightbox-preview {
+      gap: 40px;
+      flex-direction: column;
+      align-items: center;
+   }
+
+	&__main-image {
+		max-width: 445px;
+		flex-basis: 445px;
+
+      position: relative;
+
+		@media (min-width: $first-breakpoint) {
+			// border-radius: 1rem;
+			// overflow: hidden;
+			cursor: pointer;
+		}
+
+		& > img {
+			display: block;
+			width: 100%;
+
+			height: auto;
+			aspect-ratio: 1.25;
+			object-fit: cover;
+			object-position: center center;
+
+			@media (min-width: $first-breakpoint) {
+				aspect-ratio: 1;
+            border-radius: 1rem;
+			}
+		}
+
+      .lightbox-preview & {
+         max-width: 550px;
+         flex-basis: 550px;
+         cursor: auto;
+      }
+	}
+
+	&__options {
+		display: none;
+
+		@media (min-width: $first-breakpoint) {
+			display: flex;
+			// justify-content: space-between;
+			flex-direction: row;
+         overflow: hidden;
+         gap: 20px;
+		}
+		@media (min-width: $second-breakpoint) {
+			flex-direction: column;
+         height: $product-image-width;
+         --preview-options-carousel-axis: Y;
+		}
+
+		@media (min-width: $third-breakpoint) {
+			flex-direction: row;
+         height: initial;
+         width: $product-image-width;
+         --preview-options-carousel-axis: X;
+		}
+
+      .lightbox-preview & {
+         flex-direction: row;
+         justify-content: center;
+         gap: 30px;
+         height: initial; // anyway preview options positioned horizontally
+         overflow: initial;
+         flex-wrap: wrap;
+         @media (min-width: $second-breakpoint) {
+            width: $second-breakpoint - 60px;
+         }
+         @media (min-width: $third-breakpoint) {
+            width: $third-breakpoint - 60px;
+         }
+      }
+	}
+
+	&__image {
+		flex: 0 0 88px;
+		width: 88px;
+		height: 88px;
+		border-radius: 10px;
+		overflow: hidden;
+		cursor: pointer;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		&.chosen {
+			border: 2px solid #ea8336;
+			img {
+				filter: opacity(30%);
+			}
+		}
+
+		transition: opacity 0.1s ease-in;
+		&:not(.chosen):hover {
+			opacity: 0.6;
+		}
+
+      @media (min-width: $first-breakpoint) {
+         transition: transform 0.2s ease-in-out;
+      }
+	}
+
+	&__prev-btn,
+	&__next-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		background-color: white;
+		cursor: pointer;
+
+		width: $arrow-button-radius-mobile;
+		height: $arrow-button-radius-mobile;
+
+      & > img {
+         width: $arrow-image-width-mobile;
+         height: $arrow-image-height-mobile;
+      }
+
+      @media (min-width: $first-breakpoint) {
+         display: none;
+      }
+
+      .lightbox-preview & {
+         display: flex;
+      }
+	}
+
+	&__prev-btn {
+		left: $arrow-button-margin-mobile;
+      .lightbox-preview & {
+         left: 0;
+         transform: translate(-50%, -50%);
+      }
+		& > img {
+			transform: translateX(-1px);
+		}
+	}
+
+	&__next-btn {
+		right: $arrow-button-margin-mobile;
+      .lightbox-preview & {
+         right: 0;
+         transform: translate(50%, -50%);
+      }
+		& > img {
+			transform: translateX(1px);
+		}
+	}
+}
