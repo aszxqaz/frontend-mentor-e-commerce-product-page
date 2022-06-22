@@ -197,6 +197,7 @@
 		pointer-events: all;
 		cursor: pointer;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
 
 		width: $arrow-button-radius-mobile;
 		height: $arrow-button-radius-mobile;
