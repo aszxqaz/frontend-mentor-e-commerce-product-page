@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 html {
 	box-sizing: border-box;
 	font-size: 100%;
@@ -16,8 +18,27 @@ button {
 	border: none;
 	background: none;
 	padding: 0;
+   -webkit-tap-highlight-color: transparent;
+
+   cursor: pointer;
+   user-select: none;
+
+   &:focus {
+      outline: 1px solid $color-primary-orange;
+   }
+
 }
 
 ul {
 	list-style: none;
+}
+
+a {
+   -webkit-tap-highlight-color: transparent;
+   cursor: pointer;
+   user-select: none;
+
+   &:focus {
+      outline: 1px solid $color-primary-orange;
+   }
 }

@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+/*** BREAKPOINTS ***/
+/*** PREV-NEXT GALLERY-LIGHTBOX BUTTONS ***/
+/*** Z-INDEXES ***/
+/*** PREVIEW OPTIONS CAROUSEL DIRECTION ***/
+:root {
+  --preview-options-carousel-axis: X;
+}
+@media (min-width: 623px) {
+  :root {
+    --preview-options-carousel-axis: Y;
+  }
+}
+@media (min-width: 980px) {
+  :root {
+    --preview-options-carousel-axis: X;
+  }
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -17,28 +35,31 @@ button {
   border: none;
   background: none;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+button:focus {
+  outline: 1px solid hsl(26deg, 100%, 55%);
 }
 
 ul {
   list-style: none;
 }
 
-/*** BREAKPOINTS ***/
-/*** PREV-NEXT GALLERY-LIGHTBOX BUTTONS ***/
-/*** Z-INDEXES ***/
-/*** PREVIEW OPTIONS CAROUSEL DIRECTION ***/
-:root {
-  --preview-options-carousel-axis: X;
+a {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-@media (min-width: 623px) {
-  :root {
-    --preview-options-carousel-axis: Y;
-  }
-}
-@media (min-width: 980px) {
-  :root {
-    --preview-options-carousel-axis: X;
-  }
+a:focus {
+  outline: 1px solid hsl(26deg, 100%, 55%);
 }
 
 body {
@@ -266,7 +287,6 @@ button {
 .nav__avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
 }
 @media (min-width: 750px) {
   .nav__avatar {
@@ -526,12 +546,6 @@ button {
   border-radius: 50%;
   background-color: white;
   pointer-events: all;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-tap-highlight-color: transparent;
   width: 40px;
   height: 40px;
 }
