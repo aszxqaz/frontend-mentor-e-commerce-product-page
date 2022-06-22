@@ -33,9 +33,13 @@
 	top: $header-height-mobile * 1.15;
 	z-index: 20;
 
-	@media (min-width: 450px) {
+   width: max-content;
+   max-width: 95%;
+
+	@media (min-width: $first-breakpoint) {
 		position: absolute;
 		left: initial;
+      max-width: initial;
 		right: 0;
 		top: 170%;
 		right: 0;
@@ -46,8 +50,6 @@
 		transform: translateX(-50%);
 		margin: initial;
 	}
-
-	width: max-content;
 
 	background-color: white;
 	box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.2);
@@ -76,6 +78,8 @@
 	display: flex;
 	align-items: center;
 	gap: 17px;
+   white-space: nowrap;
+   overflow: hidden;
 
 	padding: 24px;
 
@@ -84,6 +88,7 @@
 		height: 50px;
 		border-radius: 5px;
 		overflow: hidden;
+      flex-shrink: 0;
 
 		img {
 			width: 100%;
@@ -102,6 +107,14 @@
 			}
 		}
 	}
+
+   &__description {
+      overflow: hidden;
+      p {
+         text-overflow: ellipsis;
+         overflow: hidden;
+      }
+   }
 
 	&__checkout {
 		padding-inline: 24px;
