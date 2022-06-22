@@ -196,6 +196,7 @@
 		background-color: white;
 		pointer-events: all;
 		cursor: pointer;
+      user-select: none;
 
 		width: $arrow-button-radius-mobile;
 		height: $arrow-button-radius-mobile;
@@ -213,7 +214,7 @@
 			display: flex;
 			width: $arrow-button-radius-desktop;
 			height: $arrow-button-radius-desktop;
-         
+
 			> img {
 				width: $arrow-image-width-desktop;
 				height: $arrow-image-height-desktop;

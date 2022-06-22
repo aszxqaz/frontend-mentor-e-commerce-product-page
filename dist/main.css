@@ -527,6 +527,10 @@ button {
   background-color: white;
   pointer-events: all;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 40px;
   height: 40px;
 }
