@@ -30,12 +30,12 @@ Users should be able to:
 
 ### Screenshot
 
-![./screenshot.jpeg]
+[./screenshot.jpeg]
 
 ### Links
 
-- Solution URL: [https://frontend-mentor-e-commerce-product-page-tau.vercel.app/]
-- Live Site URL: [https://github.com/aszxqaz/frontend-mentor-e-commerce-product-page/]
+- Solution URL: [https://github.com/aszxqaz/frontend-mentor-e-commerce-product-page/]
+- Live Site URL: [https://frontend-mentor-e-commerce-product-page-tau.vercel.app/]
 
 ## My process
 
@@ -73,5 +73,5 @@ I am a new frontend developer and this is is my first project. In future I want 
 
 ## Author
 
-- Frontend Mentor - [@yourusername] (https://www.frontendmentor.io/profile/aszxqaz)
+- Frontend Mentor - [@aszxqaz] (https://www.frontendmentor.io/profile/aszxqaz)
 - GitHub - [@aszxqaz](https://github.com/aszxqaz/)
