@@ -35,8 +35,15 @@ a {
 
 button, a {
    -webkit-tap-highlight-color: transparent;
-   
+
    &:focus-visible {
 		outline: 1px solid $color-primary-orange;
 	}
+}
+
+section {
+   margin-bottom: 50px;
+   @media (min-width: $third-breakpoint) {
+      margin-bottom: 100px;
+   }
 }

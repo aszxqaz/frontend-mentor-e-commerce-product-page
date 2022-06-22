@@ -5,7 +5,7 @@
 @use 'preview' as *;
 
 .product {
-	margin: 0 auto;
+	margin-inline: auto;
 
 	@media (min-width: $first-breakpoint) {
 		display: flex;
