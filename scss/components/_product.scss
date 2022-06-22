@@ -1,0 +1,99 @@
+@use '../globals/' as *;
+@use '../util/' as *;
+@use 'sass:math' as math;
+@use 'sass:list' as list;
+@use 'preview' as *;
+
+.product {
+	margin: 0 auto;
+
+	@media (min-width: $first-breakpoint) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+      padding-top: $mobile-padding;
+	}
+
+	@media (min-width: $second-breakpoint) {
+		max-width: initial;
+	}
+
+   @media (min-width: $third-breakpoint) {
+      flex-direction: initial;
+      gap: responsive($third-breakpoint, 1440px, 30px , 125px);
+      padding-top: responsive($container-width, 1440px, 25px, 90px);
+      margin-inline: 25px;
+   }
+
+	&__content {
+		margin-inline: $mobile-padding;
+      max-width: $product-image-width;
+
+		@media (min-width: $first-breakpoint){
+			padding-inline: initial;
+         flex: 1;
+		}
+		@media (min-width: $second-breakpoint){
+         max-width: $product-image-width + 20px + 88px;
+		}
+		@media (min-width: $second-breakpoint){
+			margin-inline: initial;
+		}
+	}
+
+}
+
+.product__company {
+	display: inline-block;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: $font-weight-700;
+	font-size: 14px;
+	color: $color-primary-orange;
+}
+
+.product__description {
+	margin-bottom: 28px;
+}
+
+.product__price {
+	display: flex;
+	align-items: center;
+	column-gap: 1rem;
+
+	margin-bottom: 28px;
+
+   @media(min-width: $second-breakpoint) {
+      display: grid;
+      grid-template-columns: min-content min-content;
+      column-gap: 18px;
+      row-gap: 17px;
+      justify-items: baseline;
+   }
+
+	&-amount {
+		font-weight: $font-weight-700;
+		font-size: 29px;
+	}
+	&-discount {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		padding: 3px 8px;
+
+		border-radius: 6px;
+		color: $color-primary-orange;
+		font-weight: $font-weight-700;
+		background-color: $color-primary-pale-orange;
+	}
+	&-previous {
+		flex: 1;
+		text-align: right;
+
+		text-decoration: line-through;
+		color: $color-grayish-blue;
+		font-weight: $font-weight-700;
+	}
+}

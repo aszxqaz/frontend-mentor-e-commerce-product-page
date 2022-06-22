@@ -37,4 +37,17 @@ a,
 a:visited,
 a:active {
 	text-decoration: none;
+   color: $color-x-dark-blue;
+   font-weight: 700;
+
+   @media (min-width: $header-menu-breakpoint) {
+      color: $color-dark-grayish-blue;
+      &:hover {
+         color: $color-x-dark-blue;
+      }
+   }
+}
+
+button {
+   font-size: inherit;
 }

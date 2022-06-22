@@ -25,14 +25,6 @@ export const products = [
             thumbnail: '/images/image-product-4-thumbnail.jpg',
             full: '/images/image-product-4.jpg'
          },
-         {
-            thumbnail: '/images/image-product-3-thumbnail.jpg',
-            full: '/images/image-product-3.jpg'
-         },
-         {
-            thumbnail: '/images/image-product-4-thumbnail.jpg',
-            full: '/images/image-product-4.jpg'
-         },
       ]
 	},
 ]

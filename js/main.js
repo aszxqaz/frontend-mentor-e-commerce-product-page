@@ -1,9 +1,8 @@
 import './menu.js'
-// import './preview.js'
 import { Cart } from './cart.js'
 import { products } from './products.js'
 import { fromEntityProductToCartProduct } from './adapters.js'
-import { Preview } from './_preview.js'
+import { Preview } from './preview.js'
 
 const cart = new Cart({
 	products: products.map(fromEntityProductToCartProduct),

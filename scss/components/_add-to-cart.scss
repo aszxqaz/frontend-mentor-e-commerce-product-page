@@ -8,7 +8,7 @@
 	margin-bottom: 30px;
    height: 56px;
 
-	@include breakpoint-up(md) {
+	@media (min-width: $first-breakpoint) {
 		flex-direction: row;
 	}
 

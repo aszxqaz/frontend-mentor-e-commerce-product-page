@@ -1,11 +1,52 @@
 @use '../globals/' as *;
 @use 'sass:math' as math;
 
+.lightbox {
+	@media (max-width: ($third-breakpoint - 0.01px)) {
+		display: none;
+	}
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.75);
+
+	&__close-btn {
+		position: absolute;
+		top: -58px;
+		right: -7px;
+
+		cursor: pointer;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+
+		img {
+			filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(295%) hue-rotate(294deg) brightness(117%)
+				contrast(87%);
+			width: 23px;
+			height: 23px;
+		}
+
+		&:hover {
+			img {
+				filter: brightness(0) saturate(100%) invert(61%) sepia(18%) saturate(7208%) hue-rotate(347deg) brightness(100%)
+					contrast(102%);
+			}
+		}
+	}
+}
+
 .preview {
 	max-width: 445px;
 	margin: 0 auto;
-	// position: relative;
-   transform: translate(0, 0);
+	transform: translate(0, 0);
 
 	margin-bottom: 26px;
 
@@ -24,21 +65,22 @@
 		flex-direction: column;
 	}
 
-   &.lightbox-preview {
-      gap: 40px;
-      flex-direction: column;
-      align-items: center;
-   }
+	&.lightbox-preview {
+      padding-top: 70px;
+		gap: 40px;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	&__main-image {
 		max-width: 445px;
 		flex-basis: 445px;
+		pointer-events: none;
 
-      position: relative;
+		position: relative;
 
-		@media (min-width: $first-breakpoint) {
-			// border-radius: 1rem;
-			// overflow: hidden;
+		@media (min-width: $third-breakpoint) {
+			pointer-events: initial;
 			cursor: pointer;
 		}
 
@@ -53,15 +95,15 @@
 
 			@media (min-width: $first-breakpoint) {
 				aspect-ratio: 1;
-            border-radius: 1rem;
+				border-radius: 1rem;
 			}
 		}
 
-      .lightbox-preview & {
-         max-width: 550px;
-         flex-basis: 550px;
-         cursor: auto;
-      }
+		.lightbox-preview & {
+			max-width: 550px;
+			flex-basis: 550px;
+			cursor: auto;
+		}
 	}
 
 	&__options {
@@ -69,38 +111,30 @@
 
 		@media (min-width: $first-breakpoint) {
 			display: flex;
-			// justify-content: space-between;
 			flex-direction: row;
-         overflow: hidden;
-         gap: 20px;
+			overflow: hidden;
+			gap: 20px;
 		}
 		@media (min-width: $second-breakpoint) {
 			flex-direction: column;
-         height: $product-image-width;
-         --preview-options-carousel-axis: Y;
+			height: $product-image-width;
 		}
 
 		@media (min-width: $third-breakpoint) {
 			flex-direction: row;
-         height: initial;
-         width: $product-image-width;
-         --preview-options-carousel-axis: X;
+			height: initial;
+			width: $product-image-width;
 		}
 
-      .lightbox-preview & {
-         flex-direction: row;
-         justify-content: center;
-         gap: 30px;
-         height: initial; // anyway preview options positioned horizontally
-         overflow: initial;
-         flex-wrap: wrap;
-         @media (min-width: $second-breakpoint) {
-            width: $second-breakpoint - 60px;
-         }
-         @media (min-width: $third-breakpoint) {
-            width: $third-breakpoint - 60px;
-         }
-      }
+		.lightbox-preview & {
+			flex-direction: row;
+			justify-content: center;
+			gap: 30px;
+			height: initial; // anyway preview options positioned horizontally
+			overflow: initial;
+			flex-wrap: wrap;
+         max-width: 900px;
+		}
 	}
 
 	&__image {
@@ -125,13 +159,29 @@
 		}
 
 		transition: opacity 0.1s ease-in;
-		&:not(.chosen):hover {
-			opacity: 0.6;
+
+		&:not(.lightbox-preview):not(.chosen):hover {
+			img {
+				filter: opacity(0.6);
+			}
 		}
 
-      @media (min-width: $first-breakpoint) {
-         transition: transform 0.2s ease-in-out;
-      }
+		@media (min-width: $first-breakpoint) {
+			transition: transform 0.2s ease-in-out;
+		}
+
+		.lightbox-preview &:not(.lightbox-chosen):hover {
+			img {
+				filter: contrast(calc(1 / 3)) brightness(1.4);
+			}
+		}
+
+		&.lightbox-chosen {
+			border: 2px solid #ea8336;
+			img {
+				filter: contrast(calc(1 / 3)) brightness(1.7);
+			}
+		}
 	}
 
 	&__prev-btn,
@@ -149,26 +199,33 @@
 		width: $arrow-button-radius-mobile;
 		height: $arrow-button-radius-mobile;
 
-      & > img {
-         width: $arrow-image-width-mobile;
-         height: $arrow-image-height-mobile;
-      }
+		@media (min-width: $first-breakpoint) {
+			display: none;
+		}
 
-      @media (min-width: $first-breakpoint) {
-         display: none;
-      }
-
-      .lightbox-preview & {
-         display: flex;
-      }
+		.lightbox-preview & {
+			display: flex;
+			width: $arrow-button-radius-desktop;
+			height: $arrow-button-radius-desktop;
+			> img {
+				width: $arrow-image-width-desktop;
+				height: $arrow-image-height-desktop;
+			}
+			&:hover {
+				img {
+					filter: brightness(0) saturate(100%) invert(61%) sepia(18%) saturate(7208%) hue-rotate(347deg)
+						brightness(100%) contrast(102%);
+				}
+			}
+		}
 	}
 
 	&__prev-btn {
 		left: $arrow-button-margin-mobile;
-      .lightbox-preview & {
-         left: 0;
-         transform: translate(-50%, -50%);
-      }
+		.lightbox-preview & {
+			left: 0;
+			transform: translate(-50%, -50%);
+		}
 		& > img {
 			transform: translateX(-1px);
 		}
@@ -176,10 +233,10 @@
 
 	&__next-btn {
 		right: $arrow-button-margin-mobile;
-      .lightbox-preview & {
-         right: 0;
-         transform: translate(50%, -50%);
-      }
+		.lightbox-preview & {
+			right: 0;
+			transform: translate(50%, -50%);
+		}
 		& > img {
 			transform: translateX(1px);
 		}

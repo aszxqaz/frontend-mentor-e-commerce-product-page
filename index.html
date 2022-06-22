@@ -4,7 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="/dist/main.css" rel="stylesheet" />
-		<title></title>
+		<link rel="icon" type="image/png" href="/images/favicon-32x32.png" />
+		<title>Frontend Mentor | E-commerce Product Page</title>
 	</head>
 	<body>
 		<!-- HEADER -->
@@ -44,8 +45,8 @@
 					<button class="nav__cart my_cart_toggle">
 						<img src="/images/icon-cart.svg" alt="cart" />
 					</button>
-               <!-- cart inserts here -->
-               <span class="cart-badge my_cart_badge"></span>
+					<!-- cart inserts here -->
+					<span class="cart-badge my_cart_badge"></span>
 				</div>
 				<button class="nav__avatar">
 					<img src="/images/image-avatar.png" alt="avatar" />
@@ -55,8 +56,7 @@
 		<!-- MAIN -->
 		<main class="main main-container">
 			<section class="product">
-				<div class="product__preview preview" id="preview">
-				</div>
+				<div class="product__preview preview" id="preview"></div>
 				<!-- <div class="lightbox" id="lightbox"></div> -->
 				<div class="product__content">
 					<span class="product__company">Sneaker Company</span>
@@ -72,7 +72,7 @@
 					</div>
 					<div class="add2cart">
 						<div class="add2cart__panel">
-							<button  data-my_cart_remove="1" class="add2cart__minus">
+							<button data-my_cart_remove="1" class="add2cart__minus">
 								<img src="/images/icon-minus.svg" alt="Remove item from cart" />
 							</button>
 							<span data-my_cart_quantity="1" class="add2cart__quantity">0</span>

@@ -1,10 +1,3 @@
-/**   Usage:
- *    <button data-cart_action_add="1">Add to cart</button>
- *    <button data-cart_action_remove="1">Remove from cart</button>
- *    ...
- *
- * */
-
 const CART_WRAPPER_SELECTOR = '.my_cart_wrapper'
 const CART_TOGGLE_BUTTON_SELECTOR = '.my_cart_toggle'
 const QUANTITY_DISPLAY_DATASET_ATTRIBUTE = 'my_cart_quantity'
@@ -18,7 +11,6 @@ export class Cart {
 		this.itemsAdded = []
 		this.itemsSelected = []
 		this._products = [...options.products]
-		console.log(this._products)
 		this._uniqueField = options.uniqueField || 'id'
 
 		this.initializeButtons()
@@ -40,7 +32,6 @@ export class Cart {
 		addButtons.forEach((addBtn) => {
 			addBtn.addEventListener('click', () => {
 				const productId = addBtn.dataset[ADD_BUTTON_DATASET_ATTRIBUTE]
-				console.dir(addBtn)
 				this.select(productId)
 			})
 		})
@@ -59,12 +50,13 @@ export class Cart {
 		})
 
 		const cartToggleBtns = document.querySelectorAll(CART_TOGGLE_BUTTON_SELECTOR)
+
 		cartToggleBtns.forEach((btn) => {
 			btn.addEventListener('click', (e) => {
 				e.stopPropagation()
 				this.show()
 				const onClose = (e) => {
-					if (e.target.closest('cart')) return
+					if (e.target.closest('.cart') || e.target.closest('.cart-item__delete')) return
 					this.hide()
 					document.removeEventListener('click', onClose)
 				}
@@ -75,6 +67,13 @@ export class Cart {
 
 	addToCart() {
 		this.itemsAdded = [...this.itemsSelected]
+		this.updateCart()
+		this.updateBadge()
+	}
+
+	delete(index) {
+		this.itemsAdded.splice(index, 1)
+      console.log('deleting')
 		this.updateCart()
 		this.updateBadge()
 	}
@@ -99,7 +98,7 @@ export class Cart {
             <img src="${product.thumbnail}" />
          </div>
          <div class="cart-item__description">
-            <p>${product.producer}</p>
+            <p>${product.model}</p>
             <p>$${product.price.toFixed(2)} x ${quantity} <span class="cart-item__amount">$${amount.toFixed(
 				2,
 			)}</span></p>
@@ -136,7 +135,6 @@ export class Cart {
 		const $cart_items = document.createElement('div')
 		$cart_items.classList.add('cart__items')
 
-		console.log(this.itemsAdded)
 		this.itemsAdded.forEach(({ item_id, quantity }) => {
 			const item = this._products.find((product) => product[this._uniqueField] == item_id)
 			const $cart_item = this.getCartItem(item, quantity)
@@ -148,6 +146,12 @@ export class Cart {
 		} else {
 			this._$cart.appendChild($cart_items)
 		}
+		const deleteBtns = document.querySelectorAll(`.cart-item__delete`)
+		deleteBtns.forEach((deleteBtn, index) => {
+			deleteBtn.addEventListener('click', () => {
+				this.delete(index)
+			})
+		})
 
 		if (!checkout) {
 			this.insertCheckout()
@@ -207,7 +211,7 @@ export class Cart {
 	}
 
 	show() {
-		this._$cart.classList.add('opened')
+		this._$cart.classList.toggle('opened')
 	}
 
 	hide() {

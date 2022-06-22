@@ -1,5 +1,6 @@
 @use '../globals/' as *;
 @use '../util/' as *;
+@use 'sass:math' as math;
 
 @mixin icon-button {
 	display: flex;
@@ -16,9 +17,6 @@
 	}
 
 	padding: 0 1rem;
-	@include breakpoint-up(lg) {
-		//padding: 0 responsive(850px, 1440px, 16px, 80px);
-	}
 
 	width: 100%;
 	top: 0;
@@ -29,9 +27,28 @@
 .nav {
 	height: $header-height-mobile;
 	@include breakpoint-up(md) {
-		// height: $header-height-desktop;
-		height: responsive(500px, 1180px, $header-height-mobile, $header-height-desktop);
+		$header-height: responsive(500px, 1180px, $header-height-mobile, $header-height-desktop);
+		height: $header-height;
+
 		border-bottom: 1px solid $color-divider;
+
+		&__link {
+         &::after {
+            content: '';
+				position: absolute;
+				left: 0;
+				bottom: calc(math.div(responsive(500px, 1180px, $header-height-mobile, $header-height-desktop), -2) + 10px);
+				width: 0%;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+				height: 4px;
+				background-color: $color-primary-orange;
+         }
+			&:hover::after {
+				width: 100%;
+				opacity: 1;
+			}
+		}
 	}
 
 	display: flex;
@@ -39,7 +56,7 @@
 	background-color: white;
 
 	&__menu {
-		// z-index: $z-fixed;
+		z-index: 1000;
 		position: fixed;
 		top: 0;
 		bottom: 0;
@@ -64,6 +81,9 @@
 				left: 0;
 			}
 		}
+      @media (min-width: $header-menu-breakpoint) {
+         z-index: initial;
+      }
 	}
 
 	&__toggle,
@@ -77,13 +97,23 @@
 		@include icon-button;
 	}
 
-   &__toggle {
-      margin-right: responsive(375px, $header-menu-breakpoint, $burger-logo-gap-min, $burger-logo-gap-max);
+   &__cart {
+      &:hover {
+         img {
+            filter: brightness(0) saturate(100%);
+         }
+      }
    }
+
+	&__toggle {
+		margin-right: responsive(375px, $header-menu-breakpoint, $burger-logo-gap-min, $burger-logo-gap-max);
+	}
 
 	&__avatar {
 		width: $avatar-img-width-min + 15px;
 		height: $avatar-img-width-min + 15px;
+
+      border-radius: 50%;
 
 		@media (min-width: $header-menu-breakpoint) {
 			width: initial;
@@ -124,8 +154,7 @@
 	}
 
 	&__link {
-		color: $color-dark-grayish-blue;
-		font-weight: $font-weight-700;
+		position: relative;
 	}
 
 	&__close {
