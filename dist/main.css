@@ -103,7 +103,6 @@ a:active {
 a:visited:hover,
 a:active:hover {
     color: hsl(220deg, 13%, 13%);
-    font-weight: 700;
   }
 }
 
