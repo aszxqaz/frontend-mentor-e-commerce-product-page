@@ -66,7 +66,7 @@
 	}
 
 	&.lightbox-preview {
-      padding-top: 70px;
+		padding-top: 70px;
 		gap: 40px;
 		flex-direction: column;
 		align-items: center;
@@ -133,7 +133,7 @@
 			height: initial; // anyway preview options positioned horizontally
 			overflow: initial;
 			flex-wrap: wrap;
-         max-width: 900px;
+			max-width: 900px;
 		}
 	}
 
@@ -194,11 +194,16 @@
 		align-items: center;
 		border-radius: 50%;
 		background-color: white;
-      pointer-events: all;
+		pointer-events: all;
 		cursor: pointer;
 
 		width: $arrow-button-radius-mobile;
 		height: $arrow-button-radius-mobile;
+
+		img {
+			width: $arrow-image-width-mobile;
+			height: $arrow-image-height-mobile;
+		}
 
 		@media (min-width: $first-breakpoint) {
 			display: none;
@@ -208,6 +213,7 @@
 			display: flex;
 			width: $arrow-button-radius-desktop;
 			height: $arrow-button-radius-desktop;
+         
 			> img {
 				width: $arrow-image-width-desktop;
 				height: $arrow-image-height-desktop;

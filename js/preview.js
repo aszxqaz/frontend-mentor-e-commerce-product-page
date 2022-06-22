@@ -157,7 +157,7 @@ export class Preview extends ImagesCounter {
 	startResizeHandler() {
 		window.addEventListener('resize', () => {
 			const axis = this.getCarouselDirection()
-			if (this.currentAxis !== axis) {
+			if (this.currentAxis !== axis && !this.isEnoughSpaceNotToScroll()) {
 				this.currentOffset = 0
 				this.movePreviewOptions(0, this.currentImageIndex)
 			}
