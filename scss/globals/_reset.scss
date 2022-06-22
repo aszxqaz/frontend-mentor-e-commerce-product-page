@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use 'variables' as *;
 
 html {
 	box-sizing: border-box;
@@ -18,15 +18,9 @@ button {
 	border: none;
 	background: none;
 	padding: 0;
-   -webkit-tap-highlight-color: transparent;
 
-   cursor: pointer;
-   user-select: none;
-
-   &:focus {
-      outline: 1px solid $color-primary-orange;
-   }
-
+	cursor: pointer;
+	user-select: none;
 }
 
 ul {
@@ -34,11 +28,15 @@ ul {
 }
 
 a {
-   -webkit-tap-highlight-color: transparent;
-   cursor: pointer;
-   user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	cursor: pointer;
+	user-select: none;
+}
 
-   &:focus {
-      outline: 1px solid $color-primary-orange;
-   }
+button, a {
+   -webkit-tap-highlight-color: transparent;
+   
+   &:focus-visible {
+		outline: 1px solid $color-primary-orange;
+	}
 }

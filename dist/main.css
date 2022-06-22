@@ -35,15 +35,11 @@ button {
   border: none;
   background: none;
   padding: 0;
-  -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-}
-button:focus {
-  outline: 1px solid hsl(26deg, 100%, 55%);
 }
 
 ul {
@@ -58,7 +54,11 @@ a {
       -ms-user-select: none;
           user-select: none;
 }
-a:focus {
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible, a:focus-visible {
   outline: 1px solid hsl(26deg, 100%, 55%);
 }
 
@@ -103,6 +103,7 @@ a:active {
 a:visited:hover,
 a:active:hover {
     color: hsl(220deg, 13%, 13%);
+    font-weight: 700;
   }
 }
 
@@ -161,9 +162,6 @@ button {
   height: 40px;
   cursor: pointer;
   transition: opacity 0.1s ease-in;
-}
-.add2cart__minus:focus, .add2cart__plus:focus {
-  outline: 1px solid hsl(26deg, 100%, 55%);
 }
 .add2cart__minus:hover, .add2cart__plus:hover {
   opacity: 0.5;
@@ -287,6 +285,7 @@ button {
 .nav__avatar {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
 }
 @media (min-width: 750px) {
   .nav__avatar {

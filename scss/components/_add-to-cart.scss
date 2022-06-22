@@ -33,10 +33,6 @@
       height: 40px;
       cursor: pointer;
 
-      &:focus {
-         outline: 1px solid $color-primary-orange;
-      }
-
       transition: opacity 0.1s ease-in;
       &:hover {
          opacity: 0.5;

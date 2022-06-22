@@ -113,6 +113,8 @@
 		width: $avatar-img-width-min + 15px;
 		height: $avatar-img-width-min + 15px;
 
+      border-radius: 50%;
+
 		@media (min-width: $header-menu-breakpoint) {
 			width: initial;
 			height: initial;
